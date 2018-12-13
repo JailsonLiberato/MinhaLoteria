@@ -11,7 +11,6 @@ class MainClass:
         print("\n\n\n\t\t\t\t::::Minha Loteria::::")
         tipo_jogo = self.definirJogo()
         tipo_jogo = self.definirCaracteristicasJogo(tipo_jogo)
-        print(type(tipo_jogo))
         numeros = self.gerarValoresRandom(tipo_jogo)
         self.imprimir(numeros)
 
@@ -49,6 +48,7 @@ class MainClass:
 
     def imprimir(self, numeros):
         print("\n")
+        numeros.sort()
         for numero in numeros:
             print(numero),
         print("\n")
