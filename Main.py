@@ -7,12 +7,19 @@ class MainClass:
     
     jtools = JToolsClass()
     def __init__(self):
-        self.jtools.clear()
-        print("\n\n\n\t\t\t\t::::Minha Loteria::::")
-        tipo_jogo = self.definirJogo()
-        tipo_jogo = self.definirCaracteristicasJogo(tipo_jogo)
-        numeros = self.gerarValoresRandom(tipo_jogo)
-        self.imprimir(numeros)
+        isContinue = "S"
+        while isContinue == "S":
+            self.jtools.clear()
+            print("\n\n\n\t\t\t\t::::Minha Loteria::::")
+            tipo_jogo = self.definirJogo()
+            tipo_jogo = self.definirCaracteristicasJogo(tipo_jogo)
+            numeros = self.gerarValoresRandom(tipo_jogo)
+            self.imprimir(numeros)
+            isContinue = ""
+            while not ((isContinue == "s" or isContinue == "S") or (isContinue == "n" or isContinue == "N")):
+                isContinue = input("\nDeseja continuar? [S] ou [N]")
+            
+            isContinue = isContinue.upper()
 
     def definirJogo(self):
         while True:
@@ -22,7 +29,7 @@ class MainClass:
             print("[3] Lotomania")
             print("[4] Dupla Sena")
             print("[5] Quina")
-            quantidade = raw_input("\nESCOLHA OPÇÃO: ")
+            quantidade = input("\nESCOLHA OPÇÃO: ")
             if quantidade.isdigit() and (int(quantidade) >= 1 and int(quantidade) <= 5):
                 return quantidade 
     
